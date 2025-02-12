@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class PipeBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform pipe;
+
+    Vector2 pipePos = new Vector2();
+
+    public float spd = 1.0f;
     void Start()
     {
-        
+        pipe = GetComponent<Transform>();
+        pipePos = transform.position;
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        pipe.position = pipePos;
+        if (pipePos.x <= -2.95)
+            ReplacePipes();
+        else
+            pipePos.x -= spd / 100;
+    }
+    void ReplacePipes()
+    {
+        pipe.position = new Vector3(3.07f, 4.55f,0);
+        pipePos = transform.position;
     }
 }
