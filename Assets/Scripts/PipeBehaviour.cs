@@ -24,7 +24,8 @@ public class PipeBehaviour : MonoBehaviour
     }
     void ReplacePipes()
     {
-        pipe.position = new Vector3(3.07f, 4.55f,0);
+        float randomHeight = Random.Range(-0.449f, 4.55f);
+        pipe.position = new Vector3(3.07f, randomHeight,0);
         pipePos = transform.position;
     }
 }
