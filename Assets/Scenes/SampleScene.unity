@@ -408,11 +408,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1903896690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1a89f3730ce1774ba6c9fba1f79428e, type: 3}
+  m_Script: {fileID: 11500000, guid: f796009e447ed3a44a08218ecad06f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 0}
-  spd: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
