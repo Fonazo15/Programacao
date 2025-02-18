@@ -1,24 +1,70 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-using UnityEngine.Events;
 
 public class ScoreManager : MonoBehaviour
 {
-    public UnityEvent ModifyScore;
+    public Animator spriteScoreFirst;
+    public Animator spriteScoreSecond;
 
-    public TextMeshProUGUI scoreTxt;
-
-    public int score = 0;
-    private void Start()
+    private int _scoreFirst = 0;
+    private int _scoreSecond = 0;
+    void Start()
     {
-        scoreTxt = GetComponent<TextMeshProUGUI>();
+        spriteScoreFirst = GetComponentInChildren<Animator>();
+        spriteScoreSecond = GetComponentInChildren<Animator>();
     }
+
     public void ScoreIncrese() 
     { 
-        score++;
-        scoreTxt.SetText("Score: " + score.ToString());
+        _scoreFirst++;
+        switch (_scoreFirst)
+        {
+            case 0:
+                spriteScoreFirst.ResetTrigger("AddPoint");
+                spriteScoreFirst.SetTrigger("AddPointAlt");
+                break;
+            case 1:
+                spriteScoreFirst.SetTrigger("AddPoint");
+                spriteScoreFirst.ResetTrigger("AddPointAlt");
+                break;
+            case 2:
+                spriteScoreFirst.ResetTrigger("AddPoint");
+                spriteScoreFirst.SetTrigger("AddPointAlt");
+                break;
+            case 3:
+                spriteScoreFirst.SetTrigger("AddPoint");
+                spriteScoreFirst.ResetTrigger("AddPointAlt");
+                break;
+            case 4:
+                spriteScoreFirst.ResetTrigger("AddPoint");
+                spriteScoreFirst.SetTrigger("AddPointAlt");
+                break;
+            case 5:
+                spriteScoreFirst.SetTrigger("AddPoint");
+                spriteScoreFirst.ResetTrigger("AddPointAlt");
+                break;
+            case 6:
+                spriteScoreFirst.ResetTrigger("AddPoint");
+                spriteScoreFirst.SetTrigger("AddPointAlt");
+                break;
+            case 7:
+                spriteScoreFirst.SetTrigger("AddPoint");
+                spriteScoreFirst.ResetTrigger("AddPointAlt");
+                break;
+            case 8:
+                spriteScoreFirst.ResetTrigger("AddPoint");
+                spriteScoreFirst.SetTrigger("AddPointAlt");
+                break;
+            case 9:
+                spriteScoreFirst.SetTrigger("AddPoint");
+                spriteScoreFirst.ResetTrigger("AddPointAlt");
+                break;
+            default:
+                _scoreFirst = 0;
+                spriteScoreFirst.ResetTrigger("AddPoint");
+                spriteScoreFirst.ResetTrigger("AddPointAlt");
+                break;
+        }
     }
 }
