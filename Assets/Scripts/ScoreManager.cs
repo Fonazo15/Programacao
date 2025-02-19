@@ -9,21 +9,59 @@ public class ScoreManager : MonoBehaviour
 
     private int _scoreFirst = 0;
     private int _scoreSecond = 0;
-    void Start()
-    {
-        spriteScoreFirst = GetComponentInChildren<Animator>();
-        spriteScoreSecond = GetComponentInChildren<Animator>();
-    }
 
     public void ScoreIncrese() 
     { 
-        _scoreFirst++;
+        _scoreSecond++;
+                //  \/ Unidades \/
+        switch (_scoreSecond)
+        {
+            case 1:
+                spriteScoreSecond.SetTrigger("AddPoint");
+                spriteScoreSecond.ResetTrigger("AddPointAlt");
+                break;
+            case 2:
+                spriteScoreSecond.ResetTrigger("AddPoint");
+                spriteScoreSecond.SetTrigger("AddPointAlt");
+                break;
+            case 3:
+                spriteScoreSecond.SetTrigger("AddPoint");
+                spriteScoreSecond.ResetTrigger("AddPointAlt");
+                break;
+            case 4:
+                spriteScoreSecond.ResetTrigger("AddPoint");
+                spriteScoreSecond.SetTrigger("AddPointAlt");
+                break;
+            case 5:
+                spriteScoreSecond.SetTrigger("AddPoint");
+                spriteScoreSecond.ResetTrigger("AddPointAlt");
+                break;
+            case 6:
+                spriteScoreSecond.ResetTrigger("AddPoint");
+                spriteScoreSecond.SetTrigger("AddPointAlt");
+                break;
+            case 7:
+                spriteScoreSecond.SetTrigger("AddPoint");
+                spriteScoreSecond.ResetTrigger("AddPointAlt");
+                break;
+            case 8:
+                spriteScoreSecond.ResetTrigger("AddPoint");
+                spriteScoreSecond.SetTrigger("AddPointAlt");
+                break;
+            case 9:
+                spriteScoreSecond.SetTrigger("AddPoint");
+                spriteScoreSecond.ResetTrigger("AddPointAlt");
+                break;
+            default:
+                _scoreSecond = 0;
+                _scoreFirst++;
+                spriteScoreSecond.ResetTrigger("AddPoint");
+                spriteScoreSecond.SetTrigger("AddPointAlt");
+                break;
+        }
+                //  \/ Dezenas \/
         switch (_scoreFirst)
         {
-            case 0:
-                spriteScoreFirst.ResetTrigger("AddPoint");
-                spriteScoreFirst.SetTrigger("AddPointAlt");
-                break;
             case 1:
                 spriteScoreFirst.SetTrigger("AddPoint");
                 spriteScoreFirst.ResetTrigger("AddPointAlt");
@@ -63,7 +101,7 @@ public class ScoreManager : MonoBehaviour
             default:
                 _scoreFirst = 0;
                 spriteScoreFirst.ResetTrigger("AddPoint");
-                spriteScoreFirst.ResetTrigger("AddPointAlt");
+                spriteScoreFirst.SetTrigger("AddPointAlt");
                 break;
         }
     }

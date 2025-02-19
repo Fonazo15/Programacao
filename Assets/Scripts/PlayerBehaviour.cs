@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class PlayerBehaviour : MonoBehaviour
 {
     public UnityEvent Reset;
+    public UnityEvent PlayFlight;
     public Transform player;
     public Rigidbody2D physicsPlayer;
 
