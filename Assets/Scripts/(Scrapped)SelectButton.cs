@@ -7,10 +7,10 @@ public class SelectButton : MonoBehaviour
 {
     public UnityEvent PlayGame;
 
-    public Transform PlayButton;
-    private void Start()
+    public StartGameplay PlayButton;
+    private void Awake()
     {
-        PlayButton = GetComponentInChildren<Transform>();
+        PlayButton = FindAnyObjectByType<StartGameplay>();
     }
     void Update()
     {
@@ -22,7 +22,7 @@ public class SelectButton : MonoBehaviour
 
             gameObject.transform.position = touchPos;
 
-            if(touchPos == PlayButton.position)
+            if(touchPos == PlayButton.gameObject.transform.position)
             {
                 PlayGame.Invoke();
             }

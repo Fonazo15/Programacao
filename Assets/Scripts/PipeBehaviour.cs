@@ -6,7 +6,7 @@ public class PipeBehaviour : MonoBehaviour
 {
     public Transform pipe;
 
-    Vector2 pipePos = new Vector2();
+    public Vector2 pipePos = new Vector2();
 
     public float spd = 1.0f;
     void Start()
@@ -22,7 +22,7 @@ public class PipeBehaviour : MonoBehaviour
         else
             pipePos.x -= spd / 100;
     }
-    void ReplacePipes()
+    public void ReplacePipes()
     {
         float randomHeight = Random.Range(-0.449f,4.55f);
         pipe.position = new Vector3(3.07f,randomHeight,0);
