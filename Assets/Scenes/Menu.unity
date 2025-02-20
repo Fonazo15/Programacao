@@ -250,8 +250,7 @@ Transform:
   m_LocalPosition: {x: -0.001, y: 0.5690297, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1567381968}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &270625633
@@ -311,9 +310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8cdc636e27c5e145b749663bc6ddd34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartGame:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +769,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1567381968}
   - component: {fileID: 1567381969}
+  - component: {fileID: 1567381970}
   m_Layer: 0
   m_Name: Finger
   m_TagString: Untagged
@@ -788,12 +785,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567381967}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.001, y: 0.5690297, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 270625632}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1567381969
 CircleCollider2D:
@@ -824,12 +821,40 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1567381970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567381967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa1efb2da3b58b41937b4336b4218e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayGame:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 270625634}
+        m_TargetAssemblyTypeName: StartGameplay, Assembly-CSharp
+        m_MethodName: LoadGameplay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  PlayButton: {fileID: 0}
 --- !u!1 &1673270935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,4 +1105,5 @@ SceneRoots:
   - {fileID: 1741872408}
   - {fileID: 594541878}
   - {fileID: 96816245}
+  - {fileID: 1567381968}
   - {fileID: 270625632}
