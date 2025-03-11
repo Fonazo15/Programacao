@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public ScoreData scoreData;
 
+    public int currentScore;
+
     void Awake()
     {
         if (Instance == null)
@@ -18,21 +20,21 @@ public class GameManager : MonoBehaviour
         else
             Destroy(gameObject);
     }
-
-    private void Start()
-    {
-        scoreData.score = 0;
-    }
-    public void ChangeScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
     public void IncreseScore()
     {
-        scoreData.score ++;
-    }
-    public void ShowScore()
-    {
+        currentScore++;
 
+        if (currentScore > scoreData.highScore)
+        {
+            scoreData.highScore = currentScore;
+        }
     }
+    public int GetScore()
+        { return currentScore; }
+    public int GetHighScore()
+        { return scoreData.highScore; }
+    public void ResetHighScore()
+        { scoreData.ResetHighScore(); }
+    public void LoadScene(string sceneName)
+        { SceneManager.LoadScene(sceneName); }
 }
