@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class DailyCycle : MonoBehaviour
 {
-    public Light sunLight;
-    public float rotationSpeed = 1f;
+    private Light _sunLight;
+    private float _time;
+
+    public float duration = 60f;
+    public Gradient lightColor;
     private void Awake()
     {
-        sunLight = GetComponent<Light>();
+        _sunLight = GetComponent<Light>();
     }
     void Update()
     {
-        transform.Rotate(new Vector3(1, 1, 0), rotationSpeed * Time.deltaTime);
+        _time += Time.deltaTime;
+
+        float timePercent = (_time % duration) / duration;
+
+        float rotationX = Mathf.Lerp(-90f, 270f, timePercent);
+
+        transform.rotation = Quaternion.Euler(rotationX, 0, 0);
+
+        _sunLight.color = lightColor.Evaluate(timePercent);
     }
 }

@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractiveLights : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Slider slider;
+    private void Awake()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        float rotationX = Mathf.Lerp(-90f, 270f, slider.value);
+
+        transform.rotation = Quaternion.Euler(rotationX, 0, 0);
     }
 }
