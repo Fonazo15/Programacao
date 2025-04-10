@@ -17,7 +17,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Update()
     {
         HandleGround();
-        HandleVision();
+        //HandleVision();
         HandleMovement();
         HandleJump();
         ApplyGravity();
@@ -28,7 +28,16 @@ public class PlayerBehaviour : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = new Vector3(x, _velocity.y, z);
-        _controller.Move(move * spd * Time.deltaTime);
+
+        if(Input.GetButton("Fire3"))
+        {
+            float sprintSpd = spd * 1.5f;
+            _controller.Move(move * sprintSpd * Time.deltaTime);
+        }
+        else
+        {
+            _controller.Move(move * spd * Time.deltaTime);
+        }
     }
     void HandleJump()
     {
@@ -47,10 +56,12 @@ public class PlayerBehaviour : MonoBehaviour
         if (_controller.isGrounded && _velocity.y < 0)
             _velocity.y = -(jump * 0.75f * Time.deltaTime);
     }
+    /*
     void HandleVision()
     {
         Vector3 mouse = Input.mousePosition;
         Vector3 targetRotation = new Vector3(mouse.y * -1, 0);
         transform.rotation = Quaternion.Euler(targetRotation);
     }
+    */
 }

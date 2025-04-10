@@ -10,9 +10,10 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
         Vector3 targetPosition = playerTransform.position + offset;
-        transform.position = targetPosition;
-        LookAtMouse();
+        transform.position = Vector3.Lerp(transform.position, targetPosition, spd * Time.deltaTime);
+        //LookAtMouse();
     }
+    /*
     void LookAtMouse()
     {
         Vector3 mouse = Input.mousePosition;
@@ -20,4 +21,5 @@ public class CameraFollow : MonoBehaviour
         if (targetRotation.y <= 90 || targetRotation.y >= -90)
             transform.rotation = Quaternion.Euler(targetRotation);
     }
+    */
 }
