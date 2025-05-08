@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PickupTrigger : MonoBehaviour
 {
-    public Transform holdPoint;
-
+    public GameObject holdPoint;
     private GameObject _nearbyObject;
     private GameObject _heldObject;
 
     // Update is called once per frame
+    private void Awake()
+    {
+        //holdPoint = GetComponentInChildren<GameObject>(); Não Funcionou (?)
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -30,7 +33,7 @@ public class PickupTrigger : MonoBehaviour
         _heldObject = obj;
         Rigidbody rigidbody = obj.GetComponent<Rigidbody>();
         rigidbody.isKinematic = true;
-        _nearbyObject.transform.SetParent(holdPoint);
+        _nearbyObject.transform.SetParent(holdPoint.transform);
         _heldObject.transform.localPosition = Vector3.zero;
     }
 
@@ -38,7 +41,7 @@ public class PickupTrigger : MonoBehaviour
     {
         Rigidbody rigidbody = _heldObject.GetComponent<Rigidbody>();
         rigidbody.isKinematic = false;
-        _heldObject.transform.SetParent(null);
+        _heldObject?.transform.SetParent(null);
         _heldObject = null;
     }
 
